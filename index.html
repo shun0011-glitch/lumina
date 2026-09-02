@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>LUMINA｜豊中の美容室</title>
+
+  <meta
+    name="description"
+    content="LUMINAは大阪府豊中市の美容室です。カット、カラー、ヘアトリートメントなど、一人ひとりに合わせた自然な美しさをご提案します。"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+  <div class="header-inner">
+    <h1>LUMINA</h1>
+
+    <button class="menu-button" aria-label="メニューを開く">
+  ☰
+</button>
+
+<nav class="nav-menu">
+  <a href="#concept">Concept</a>
+  <a href="#menu">Menu</a>
+  <a href="#access">Access</a>
+  <a href="#reserve">Reservation</a>
+</nav>
+  </div>
+
+  <div class="hero">
+    <img
+      src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=80"
+      alt="美容室の店内"
+    >
+
+    <div class="hero-content">
+      <p>あなたの美しさを、もっと自然に。</p>
+      <a href="#reserve" class="reserve-button">予約する</a>
+    </div>
+  </div>
+</header>
+
+  <main>
+
+    <section id="menu" class="fade-in">
+  <h2>Menu</h2>
+
+  <div class="menu-list" id="menu-list"></div>
+
+  <button id="add-menu">メニューを追加</button>
+</section>
+
+    <section id="access" class="fade-in">
+      <h2>Access</h2>
+      <p>大阪府豊中市〇〇町1-2-3</p>
+    </section>
+
+    <section id="reserve" class="fade-in">
+  <h2>Reservation</h2>
+
+  <p>ご予約・お問い合わせはこちらから。</p>
+
+  <button class="reserve-button" id="open-form">
+    予約する
+  </button>
+
+  <div class="reservation-form" id="reservation-form">
+
+    <form id="reservationForm">
+
+  <label for="name">お名前</label>
+  <input
+    type="text"
+    id="name"
+    name="name"
+    required
+  >
+
+  <label for="email">メールアドレス</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    required
+  >
+
+  <label for="date">ご希望日</label>
+  <input
+    type="date"
+    id="date"
+    name="date"
+    required
+  >
+
+  <label for="message">メッセージ</label>
+  <textarea
+    id="message"
+    name="message"
+    rows="5"
+  ></textarea>
+
+  <button type="submit">
+    送信する
+  </button>
+
+</form>
+
+<p
+  id="form-message"
+  role="alert"
+></p>
+
+<div id="reservation-preview"></div>
+
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 LUMINA</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
