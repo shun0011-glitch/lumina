@@ -6,6 +6,7 @@ const fadeElements = document.querySelectorAll(".fade-in");
 
 const menuButton = document.querySelector(".menu-button");
 const navMenu = document.querySelector(".nav-menu");
+const navLinks = document.querySelectorAll(".nav-menu a");
 
 const openFormButton = document.querySelector("#open-form");
 const reservationForm = document.querySelector("#reservation-form");
@@ -16,6 +17,7 @@ const reservationPreview = document.querySelector("#reservation-preview");
 
 const menuList = document.querySelector("#menu-list");
 const addMenuButton = document.querySelector("#add-menu");
+
 
 
 // ========================================
@@ -88,19 +90,13 @@ function createMenuCard(menu) {
   card.classList.add("menu-card");
 
   card.innerHTML = `
-    <h3>${menu.name}</h3>
-    <p>${menu.description}</p>
-    <strong>${menu.price}</strong>
-    <button class="delete-menu">削除</button>
-  `;
+  <h3>${menu.name}</h3>
+  <p>${menu.description}</p>
+  <strong>${menu.price}</strong>
+`;
 
   menuList.appendChild(card);
 
-  const deleteButton = card.querySelector(".delete-menu");
-
-  deleteButton.addEventListener("click", () => {
-    card.remove();
-  });
 }
 
 
@@ -159,6 +155,34 @@ window.addEventListener("scroll", () => {
 
 menuButton.addEventListener("click", () => {
   navMenu.classList.toggle("open");
+
+  const isOpen = navMenu.classList.contains("open");
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    isOpen
+  );
+
+  menuButton.setAttribute(
+    "aria-label",
+    isOpen ? "メニューを閉じる" : "メニューを開く"
+  );
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    menuButton.setAttribute(
+      "aria-label",
+      "メニューを開く"
+    );
+  });
 });
 
 
@@ -216,8 +240,7 @@ addMenuButton.addEventListener("click", () => {
   additionalMenuIndex++;
 
   if (additionalMenuIndex >= additionalMenus.length) {
-    addMenuButton.textContent = "すべて表示しました";
-    addMenuButton.disabled = true;
+    addMenuButton.style.display = "none";
   }
 });
 
